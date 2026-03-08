@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обмен доната</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Обмен доната</h1>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav id="menu">
+            <a href="index.html">Главная</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="shop">
+            <div class="product">
+                <h3>Товар 1</h3>
+                <p>Цена: 100₽</p>
+                <input type="number" min="1" value="1" id="qty1">
+                <button onclick="addToCart('Товар 1', 100, document.getElementById('qty1').value)">Добавить в корзину</button>
+            </div>
+            <div class="product">
+                <h3>Товар 2</h3>
+                <p>Цена: 200₽</p>
+                <input type="number" min="1" value="1" id="qty2">
+                <button onclick="addToCart('Товар 2', 200, document.getElementById('qty2').value)">Добавить в корзину</button>
+            </div>
+        </div>
+
+        <h2>Корзина</h2>
+        <ul id="cart"></ul>
+        <p>Итого: <span id="total">0</span>₽</p>
+        <button onclick="clearCart()">Очистить корзину</button>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
