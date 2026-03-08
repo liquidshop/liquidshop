@@ -1,14 +1,16 @@
-let cart = [];
-
+// Функция меню
 function toggleMenu() {
-    document.getElementById('menu').classList.toggle('active');
+    const menu = document.getElementById('menu');
+    if(menu) menu.classList.toggle('active');
 }
+
+// Корзина
+let cart = [];
 
 function addToCart(name, price, quantity) {
     quantity = parseInt(quantity);
     if(quantity <= 0) return;
 
-    // Проверяем, есть ли уже такой товар
     let existing = cart.find(item => item.name === name);
     if(existing) {
         existing.quantity += quantity;
@@ -31,6 +33,9 @@ function clearCart() {
 function updateCart() {
     const cartList = document.getElementById('cart');
     const totalElem = document.getElementById('total');
+
+    if(!cartList || !totalElem) return; // защита, если корзины нет на странице
+
     cartList.innerHTML = '';
     let total = 0;
     cart.forEach(item => {
